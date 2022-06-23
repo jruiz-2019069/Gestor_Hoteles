@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from 'src/app/Models/client.model';
 import { NavBarLoginRestService } from 'src/app/services/nav-bar-login-rest.service';
 import Swal from 'sweetalert2';
@@ -19,6 +20,7 @@ export class NavBarLoginComponent implements OnInit {
 
   constructor(
     public navBarRest: NavBarLoginRestService,
+    public router: Router
   ) { 
     this.client = new Client("", "", "", "", "", "", "", "");
   }
@@ -31,7 +33,13 @@ export class NavBarLoginComponent implements OnInit {
       next: (res: any) => {
         localStorage.setItem("token", res.token);
         localStorage.setItem("user", JSON.stringify(res.admin || res.manager || res.client));
-        console.log("hola");
+        if(this.navBarRest.getUser().role === "CLIENT"){
+          this.router.navigateByUrl("hotels");
+        }else if(this.navBarRest.getUser().role === "MANAGER"){
+          this.router.navigateByUrl("user");
+        }else{
+          this.router.navigateByUrl("hotels");
+        }
       },
       error: (err) => {
         Swal.fire({

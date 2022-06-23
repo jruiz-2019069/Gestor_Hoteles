@@ -7,12 +7,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavBarLoginComponent } from './components/nav-bar-login/nav-bar-login.component';
+import { HotelsComponent } from './components/hotels/hotels.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
+import { UserComponent } from './components/user/user.component';
+import { NavBarLoginRestService } from './services/nav-bar-login-rest.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarLoginComponent
+    NavBarLoginComponent,
+    HotelsComponent,
+    NavBarComponent,
+    ProfileHotelComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +29,9 @@ import { NavBarLoginComponent } from './components/nav-bar-login/nav-bar-login.c
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    NavBarLoginRestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
