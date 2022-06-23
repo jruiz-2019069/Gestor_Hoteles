@@ -12,6 +12,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileHotelComponent } from './components/profile-hotel/profile-hotel.component';
 import { UserComponent } from './components/user/user.component';
 import { NavBarLoginRestService } from './services/nav-bar-login-rest.service';
+import { ClientComponent } from './components/client/client.component';
+import { SelectDateComponent } from './components/select-date/select-date.component';
+import { ReservationRoomComponent } from './components/reservation-room/reservation-room.component';
+import { ReservationServiceComponent } from './components/reservation-service/reservation-service.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { NavBarLoginRestService } from './services/nav-bar-login-rest.service';
     HotelsComponent,
     NavBarComponent,
     ProfileHotelComponent,
-    UserComponent
+    UserComponent,
+    ClientComponent,
+    SelectDateComponent,
+    ReservationRoomComponent,
+    ReservationServiceComponent
   ],
   imports: [
     BrowserModule,
